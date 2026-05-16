@@ -1,0 +1,1469 @@
+{
+  "info": {
+    "_postman_id": "694b800e-027f-4ecf-af08-025b2fa06621",
+    "name": "Financial Optimizer API",
+    "description": "Motor de Otimização de Decisões Financeiras — Hackathon ADA 2026.\n\nUtiliza o algoritmo da mochila (Knapsack DP) para recomendar a melhor\ncombinação de gastos a cortar e investimentos a priorizar, dentro de\numa restrição de orçamento. As decisões são explicadas em linguagem\nnatural via LLM (Spring AI + RAG).\n\n\nContact Support:\n Name: Hackathon ADA 2026 — Artemisia Elas+ Tech",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "25548834"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "transactions",
+          "item": [
+            {
+              "name": "ingest",
+              "item": [
+                {
+                  "name": "Importar dados da API externa (dummyjson) com virtual threads",
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/transactions/ingest",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "transactions",
+                        "ingest"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/transactions/ingest",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "transactions",
+                            "ingest"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "[\n  {\n    \"id\": \"3afebf57-608f-5c01-d24c-898c78031d72\",\n    \"description\": \"string\",\n    \"amount\": 9884.157168020944,\n    \"category\": \"string\",\n    \"categoryLabel\": \"string\",\n    \"type\": \"string\",\n    \"transactionDate\": \"1963-01-26\",\n    \"essential\": false,\n    \"potentialReduction\": 7258.029774042491,\n    \"potentialSavingAmount\": 6349.356224339577,\n    \"utilityScore\": 3321,\n    \"source\": \"string\",\n    \"createdAt\": \"1993-07-22T09:12:40.539Z\"\n  },\n  {\n    \"id\": \"ca061d19-7718-122e-8c8c-73aaca0f1fa4\",\n    \"description\": \"string\",\n    \"amount\": 3072.197490599733,\n    \"category\": \"string\",\n    \"categoryLabel\": \"string\",\n    \"type\": \"string\",\n    \"transactionDate\": \"2026-04-27\",\n    \"essential\": true,\n    \"potentialReduction\": 6840.088511981175,\n    \"potentialSavingAmount\": 3720.1143232738777,\n    \"utilityScore\": 1479,\n    \"source\": \"string\",\n    \"createdAt\": \"1972-12-10T15:52:18.669Z\"\n  }\n]"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Remover uma transação",
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/transactions/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "transactions",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id",
+                          "value": "ce1e3e81-56ac-4704-a20f-9ea6609672ee"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/transactions/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "transactions",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id",
+                              "value": "62b26dd8-c886-ce9a-5b52-cec9f730e5cb"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "body": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Listar transações do usuário autenticado",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/transactions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "transactions"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/transactions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "transactions"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "*/*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "[\n  {\n    \"id\": \"3afebf57-608f-5c01-d24c-898c78031d72\",\n    \"description\": \"string\",\n    \"amount\": 9884.157168020944,\n    \"category\": \"string\",\n    \"categoryLabel\": \"string\",\n    \"type\": \"string\",\n    \"transactionDate\": \"1963-01-26\",\n    \"essential\": false,\n    \"potentialReduction\": 7258.029774042491,\n    \"potentialSavingAmount\": 6349.356224339577,\n    \"utilityScore\": 3321,\n    \"source\": \"string\",\n    \"createdAt\": \"1993-07-22T09:12:40.539Z\"\n  },\n  {\n    \"id\": \"ca061d19-7718-122e-8c8c-73aaca0f1fa4\",\n    \"description\": \"string\",\n    \"amount\": 3072.197490599733,\n    \"category\": \"string\",\n    \"categoryLabel\": \"string\",\n    \"type\": \"string\",\n    \"transactionDate\": \"2026-04-27\",\n    \"essential\": true,\n    \"potentialReduction\": 6840.088511981175,\n    \"potentialSavingAmount\": 3720.1143232738777,\n    \"utilityScore\": 1479,\n    \"source\": \"string\",\n    \"createdAt\": \"1972-12-10T15:52:18.669Z\"\n  }\n]"
+                }
+              ]
+            },
+            {
+              "name": "Registrar uma transação",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"description\": \"Freelance backend java\",\n  \"amount\": 1500.00,\n  \"category\": \"OTHER\",\n  \"type\": \"INCOME\",\n  \"transactionDate\": \"2026-05-15\",\n  \"essential\": false,\n  \"potentialReduction\": 0,\n  \"utilityScore\": 10\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/transactions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "transactions"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"amount\": 5758.338994224276,\n  \"category\": \"EDUCATION\",\n  \"description\": \"string\",\n  \"transactionDate\": \"2011-02-22\",\n  \"type\": \"EXPENSE\",\n  \"essential\": false,\n  \"potentialReduction\": 18.843303297000695,\n  \"utilityScore\": 8\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/transactions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "transactions"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "*/*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"id\": \"8550db6a-e3aa-9d8b-fab5-ebe5d9f6030c\",\n  \"description\": \"string\",\n  \"amount\": 527.8136351327079,\n  \"category\": \"string\",\n  \"categoryLabel\": \"string\",\n  \"type\": \"string\",\n  \"transactionDate\": \"1956-05-15\",\n  \"essential\": false,\n  \"potentialReduction\": 84.25107949781241,\n  \"potentialSavingAmount\": 3055.905053754484,\n  \"utilityScore\": 8185,\n  \"source\": \"string\",\n  \"createdAt\": \"1964-05-05T11:44:42.319Z\"\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "profile",
+          "item": [
+            {
+              "name": "Obter perfil do usuário autenticado",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/profile",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "profile"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/profile",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "profile"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "*/*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"id\": \"108c2d08-f4e2-312e-5d93-3691f0d9f6e5\",\n  \"monthlyIncome\": 8016.347856337058,\n  \"totalBudget\": 2426.7917948121844,\n  \"savingsGoal\": 5481.440583329786,\n  \"riskTolerance\": \"string\",\n  \"updatedAt\": \"1960-12-09T07:46:58.460Z\"\n}"
+                }
+              ]
+            },
+            {
+              "name": "Criar ou atualizar perfil financeiro",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"monthlyIncome\": 8000.00,\n  \"totalBudget\": 4000.00,\n  \"savingsGoal\": 1000.00,\n  \"riskTolerance\": \"HIGH\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/profile",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "profile"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"monthlyIncome\": 7286.989308060632,\n  \"riskTolerance\": \"MEDIUM\",\n  \"totalBudget\": 1587.524570513108,\n  \"savingsGoal\": 3842.1343165080925\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/profile",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "profile"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "*/*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"id\": \"108c2d08-f4e2-312e-5d93-3691f0d9f6e5\",\n  \"monthlyIncome\": 8016.347856337058,\n  \"totalBudget\": 2426.7917948121844,\n  \"savingsGoal\": 5481.440583329786,\n  \"riskTolerance\": \"string\",\n  \"updatedAt\": \"1960-12-09T07:46:58.460Z\"\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "optimization",
+          "item": [
+            {
+              "name": "run",
+              "item": [
+                {
+                  "name": "Executar algoritmo knapsack e retornar carteira otimizada",
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"strategyType\": \"MINIMIZE_RISK\",\n  \"budgetConstraint\": 800.00\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/optimization/run",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "optimization",
+                        "run"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"budgetConstraint\": 3773.466024098276,\n  \"strategyType\": \"MAXIMIZE_ROI\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/optimization/run",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "optimization",
+                            "run"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"id\": \"ee399914-f147-6ac6-4aa8-fd36401c4784\",\n  \"strategyType\": \"string\",\n  \"budgetConstraint\": 9818.25114323586,\n  \"totalRoiAchieved\": 8730.790335114112,\n  \"totalSavingsIdentified\": 5683.285795703643,\n  \"selectedItems\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"itemType\": \"string\",\n      \"weight\": 181.524057339435,\n      \"value\": 143.3074442140403,\n      \"category\": \"string\",\n      \"riskLevel\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"itemType\": \"string\",\n      \"weight\": 161.43171517506437,\n      \"value\": 306.52947267908684,\n      \"category\": \"string\",\n      \"riskLevel\": \"string\"\n    }\n  ],\n  \"rulesApplied\": [\n    \"string\",\n    \"string\"\n  ],\n  \"llmExplanation\": \"string\",\n  \"createdAt\": \"1974-09-02T09:58:30.855Z\"\n}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "results",
+              "item": [
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "Obter resultado de otimização específico",
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/optimization/results/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "optimization",
+                            "results",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id",
+                              "value": "2f257226-044a-4d6a-a366-9ea133148487"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/optimization/results/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "optimization",
+                                "results",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id",
+                                  "value": "62b26dd8-c886-ce9a-5b52-cec9f730e5cb"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"id\": \"ee399914-f147-6ac6-4aa8-fd36401c4784\",\n  \"strategyType\": \"string\",\n  \"budgetConstraint\": 9818.25114323586,\n  \"totalRoiAchieved\": 8730.790335114112,\n  \"totalSavingsIdentified\": 5683.285795703643,\n  \"selectedItems\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"itemType\": \"string\",\n      \"weight\": 181.524057339435,\n      \"value\": 143.3074442140403,\n      \"category\": \"string\",\n      \"riskLevel\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"itemType\": \"string\",\n      \"weight\": 161.43171517506437,\n      \"value\": 306.52947267908684,\n      \"category\": \"string\",\n      \"riskLevel\": \"string\"\n    }\n  ],\n  \"rulesApplied\": [\n    \"string\",\n    \"string\"\n  ],\n  \"llmExplanation\": \"string\",\n  \"createdAt\": \"1974-09-02T09:58:30.855Z\"\n}"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "Listar histórico de otimizações do usuário",
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/optimization/results",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "optimization",
+                        "results"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/optimization/results",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "optimization",
+                            "results"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "[\n  {\n    \"id\": \"bbdb324d-fb4f-3481-9206-1301ee7b9c6a\",\n    \"strategyType\": \"string\",\n    \"budgetConstraint\": 6310.516190257554,\n    \"totalRoiAchieved\": 5096.275934732035,\n    \"totalSavingsIdentified\": 7680.61815544437,\n    \"selectedItems\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"itemType\": \"string\",\n        \"weight\": 3489.48912804492,\n        \"value\": 7407.491534090813,\n        \"category\": \"string\",\n        \"riskLevel\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"itemType\": \"string\",\n        \"weight\": 6919.06425284901,\n        \"value\": 3332.358062948293,\n        \"category\": \"string\",\n        \"riskLevel\": \"string\"\n      }\n    ],\n    \"rulesApplied\": [\n      \"string\",\n      \"string\"\n    ],\n    \"llmExplanation\": \"string\",\n    \"createdAt\": \"1956-02-18T22:30:34.442Z\"\n  },\n  {\n    \"id\": \"4b756378-7fec-5ab6-be9a-1f05b3da923d\",\n    \"strategyType\": \"string\",\n    \"budgetConstraint\": 3605.334053231264,\n    \"totalRoiAchieved\": 9668.61959126633,\n    \"totalSavingsIdentified\": 7783.689287621205,\n    \"selectedItems\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"itemType\": \"string\",\n        \"weight\": 7336.378383316693,\n        \"value\": 9255.065763810964,\n        \"category\": \"string\",\n        \"riskLevel\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"itemType\": \"string\",\n        \"weight\": 6557.833199658149,\n        \"value\": 8885.237709490222,\n        \"category\": \"string\",\n        \"riskLevel\": \"string\"\n      }\n    ],\n    \"rulesApplied\": [\n      \"string\",\n      \"string\"\n    ],\n    \"llmExplanation\": \"string\",\n    \"createdAt\": \"1981-10-16T13:34:47.435Z\"\n  }\n]"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "investments",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Remover um investimento",
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/investments/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "investments",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id",
+                          "value": "85eac598-841a-491d-be31-8bf0192756ca"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/investments/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "investments",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id",
+                              "value": "62b26dd8-c886-ce9a-5b52-cec9f730e5cb"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "body": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Listar investimentos do usuário",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/investments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "investments"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/investments",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "investments"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "*/*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "[\n  {\n    \"id\": \"37fcb8f7-eea3-02f1-e0e3-672917633dc8\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"requiredAmount\": 6859.219347951428,\n    \"expectedRoi\": 5928.976071264487,\n    \"riskLevel\": \"string\",\n    \"priorityScore\": 3374,\n    \"category\": \"string\",\n    \"categoryLabel\": \"string\",\n    \"createdAt\": \"2009-03-13T04:44:26.117Z\"\n  },\n  {\n    \"id\": \"3bf78451-2a4d-1560-41b8-665cf95829d9\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"requiredAmount\": 758.2125225088542,\n    \"expectedRoi\": 1658.4242723146203,\n    \"riskLevel\": \"string\",\n    \"priorityScore\": 1843,\n    \"category\": \"string\",\n    \"categoryLabel\": \"string\",\n    \"createdAt\": \"1975-03-03T17:30:28.678Z\"\n  }\n]"
+                }
+              ]
+            },
+            {
+              "name": "Registrar uma opção de investimento",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"ETF BOVA11\",\n  \"description\": \"Fundo de indice que replica o Ibovespa\",\n  \"requiredAmount\": 1000.00,\n  \"expectedRoi\": 22.00,\n  \"riskLevel\": \"HIGH\",\n  \"priorityScore\": 6,\n  \"category\": \"STOCKS\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/investments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "investments"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"category\": \"STOCKS\",\n  \"expectedRoi\": 8738.24760156936,\n  \"name\": \"string\",\n  \"requiredAmount\": 604.1109747710263,\n  \"riskLevel\": \"MEDIUM\",\n  \"description\": \"string\",\n  \"priorityScore\": 6\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/investments",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "investments"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "*/*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"id\": \"ae601373-ca13-a13c-f6f4-2a35e8018324\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"requiredAmount\": 8306.587880132716,\n  \"expectedRoi\": 9068.411719410266,\n  \"riskLevel\": \"string\",\n  \"priorityScore\": 6624,\n  \"category\": \"string\",\n  \"categoryLabel\": \"string\",\n  \"createdAt\": \"1997-12-09T15:44:54.001Z\"\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "auth",
+          "item": [
+            {
+              "name": "register",
+              "item": [
+                {
+                  "name": "Registrar novo usuário",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"email\": \"lari@email.com\",\n  \"name\": \"Larissa Fernandes\",\n  \"password\": \"Ada2026\"\n  \n\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/auth/register",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "auth",
+                        "register"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"email\": \"string\",\n  \"name\": \"string\",\n  \"password\": \"string\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/auth/register",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "auth",
+                            "register"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"token\": \"string\",\n  \"name\": \"string\",\n  \"email\": \"string\"\n}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "login",
+              "item": [
+                {
+                  "name": "Login — retorna JWT",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"email\": \"lari@email.com\",\n  \"password\": \"Ada2026\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/auth/login",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "auth",
+                        "login"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"email\": \"string\",\n  \"password\": \"string\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/auth/login",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "auth",
+                            "login"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"token\": \"string\",\n  \"name\": \"string\",\n  \"email\": \"string\"\n}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "ai",
+          "item": [
+            {
+              "name": "explain",
+              "item": [
+                {
+                  "name": "{optimizationId}",
+                  "item": [
+                    {
+                      "name": "Explicar em linguagem natural o resultado da otimização (RAG + LLM)",
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/ai/explain/:optimizationId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "ai",
+                            "explain",
+                            ":optimizationId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "optimizationId",
+                              "value": "2f257226-044a-4d6a-a366-9ea133148487"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/ai/explain/:optimizationId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "ai",
+                                "explain",
+                                ":optimizationId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "optimizationId",
+                                  "value": "62b26dd8-c886-ce9a-5b52-cec9f730e5cb"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"answer\": \"string\"\n}"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "ask",
+              "item": [
+                {
+                  "name": "Q&A livre sobre dados financeiros do usuário",
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"question\": \"Qual a melhor estrategia de investimento para o meu perfil de risco?\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/ai/ask",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "ai",
+                        "ask"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"question\": \"string\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/ai/ask",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "ai",
+                            "ask"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"answer\": \"string\"\n}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    }
+  ]
+}

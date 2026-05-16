@@ -1,0 +1,85 @@
+# =============================================
+#  Financial Optimizer — .gitignore
+# =============================================
+
+# ----- Maven -----
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# ----- IDE — IntelliJ IDEA -----
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# ----- IDE — VSCode -----
+.vscode/
+*.code-workspace
+
+# ----- IDE — Eclipse -----
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache
+bin/
+
+# ----- Sistema Operacional -----
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ----- Logs -----
+*.log
+logs/
+spring-shell.log
+
+# ----- Variaveis de ambiente e segredos -----
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.jks
+*.keystore
+*.truststore
+*.crt
+*.cer
+*credentials*
+*secret*
+!src/**/security/**
+
+# ----- H2 — banco de dados local -----
+*.db
+*.mv.db
+*.trace.db
+data/
+
+# ----- Docker -----
+docker-compose.override.yml
+
+# ----- Node (caso tenha sido instalado acidentalmente na raiz) -----
+node_modules/
+package-lock.json
+
+# ----- Arquivos temporarios -----
+*.tmp
+*.bak
+*.swp
+*.swo
+*~

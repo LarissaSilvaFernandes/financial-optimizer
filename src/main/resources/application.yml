@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: financial-optimizer
+  profiles:
+    active: dev
+
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+
+  jackson:
+    default-property-inclusion: non_null
+    serialization:
+      write-dates-as-timestamps: false
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: method
+
+server:
+  port: 8080
+  error:
+    include-message: always
+    include-binding-errors: always
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:financial-optimizer-secret-key-hackathon-ada-2026-must-be-at-least-256-bits}
+    expiration-ms: 86400000
+
+  external:
+    dummyjson-url: https://dummyjson.com
